@@ -16,7 +16,7 @@ public class SelectionSort : SortingAlgorithm
 
     }
 
-    public void StartSelectionSort()
+    public override void StartSort()
     {
         RandomInitialisation();
 
@@ -34,20 +34,20 @@ public class SelectionSort : SortingAlgorithm
     {
         int min;
         GameObject temp;
-        Vector3 tempPostion;
+        Vector3 tempPosition;
 
         for (int i = 0; i < unsortedList.Length; i++)
         {
             // Current position being evaluated set to blue colour.
             LeanTween.color(unsortedList[i], Color.blue, 0);
             min = i;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.5f * AlgorithmDetails.Speed);
 
             for (int j = i + 1; j < unsortedList.Length; j++)
             {
                 // Highlight the value thats currently being compared as cyan
                 LeanTween.color(unsortedList[j], Color.cyan, 0);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.1f * AlgorithmDetails.Speed);
 
                 // New lowest value found
                 if (unsortedList[j].transform.localScale.y < unsortedList[min].transform.localScale.y)
@@ -74,7 +74,7 @@ public class SelectionSort : SortingAlgorithm
                 unsortedList[i] = unsortedList[min];
                 unsortedList[min] = temp;
 
-                tempPostion = unsortedList[i].transform.localPosition;
+                tempPosition = unsortedList[i].transform.localPosition;
 
                 // Using LeanTween for animations, swaps the cubes
                 LeanTween.moveLocalX(unsortedList[i],
@@ -86,7 +86,7 @@ public class SelectionSort : SortingAlgorithm
                                      0.5f).setLoopPingPong(1);
 
                 LeanTween.moveLocalX(unsortedList[min],
-                                     tempPostion.x,
+                                     tempPosition.x,
                                      1);
 
                 LeanTween.moveLocalZ(unsortedList[min],

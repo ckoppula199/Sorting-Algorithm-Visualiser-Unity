@@ -22,6 +22,11 @@ public class SortingAlgorithm : MonoBehaviour
         
     }
 
+    public virtual void StartSort()
+    {
+
+    }
+
     /*
      * Method is resonsible for the creation of set number of cubes of random sizes.
      */
