@@ -8,7 +8,6 @@ public class StartMenu : MonoBehaviour
 {
     public SelectionSort SelectionSort;
     public BubbleSort BubbleSort;
-    public QuickSort QuickSort;
     public SortingAlgorithm ActiveSort;
     public InputField ArraySize;
     public Button StartButton;
@@ -17,7 +16,6 @@ public class StartMenu : MonoBehaviour
     public Button FastButton;
     public Button SelectionSortButton;
     public Button BubbleSortButton;
-    public Button QuickSortButton;
     public Button Reset;
     public Text ArraySizeText;
     public Text SpeedText;
@@ -52,11 +50,6 @@ public class StartMenu : MonoBehaviour
         AlgorithmDetails.Algorithm = 2;
     }
 
-    public void ChooseQuickSort()
-    {
-        AlgorithmDetails.Algorithm = 3;
-    }
-
     public void ChooseSlowSpeed()
     {
         AlgorithmDetails.Speed = 2.0f;
@@ -83,7 +76,6 @@ public class StartMenu : MonoBehaviour
         MediumButton.gameObject.SetActive(false);
         FastButton.gameObject.SetActive(false);
         SelectionSortButton.gameObject.SetActive(false);
-        QuickSortButton.gameObject.SetActive(false);
         BubbleSortButton.gameObject.SetActive(false);
         SpeedText.gameObject.SetActive(false);
         AlgorithmText.gameObject.SetActive(false);
@@ -103,7 +95,6 @@ public class StartMenu : MonoBehaviour
         MediumButton.gameObject.SetActive(true);
         FastButton.gameObject.SetActive(true);
         SelectionSortButton.gameObject.SetActive(true);
-        QuickSortButton.gameObject.SetActive(true);
         BubbleSortButton.gameObject.SetActive(true);
         SpeedText.gameObject.SetActive(true);
         AlgorithmText.gameObject.SetActive(true);
@@ -123,9 +114,6 @@ public class StartMenu : MonoBehaviour
                 break;
             case 2:
                 ActiveSort = Instantiate(BubbleSort);
-                break;
-            case 3:
-                ActiveSort = Instantiate(QuickSort);
                 break;
         }
     }
